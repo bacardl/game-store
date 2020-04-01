@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace GameStore.WebUI.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         IGameRepository repository;
@@ -47,6 +48,18 @@ namespace GameStore.WebUI.Controllers
         public ViewResult Create()
         {
             return View("Edit", new Game());
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int gameId)
+        {
+            Game deletedGame = repository.DeleteGame(gameId);
+            if (deletedGame != null)
+            {
+                TempData["message"] = string.Format("Game \"{0}\" has been deleted.",
+                    deletedGame.Name);
+            }
+            return RedirectToAction("Index");
         }
     }
 }
