@@ -14,7 +14,7 @@ using GameStore.WebUI.Controllers;
 namespace GameStore.UnitTests
 {
     [TestClass]
-    public class UnitTestController
+    public class GameTests
     {
         [TestMethod]
         public void Can_Paginate()
