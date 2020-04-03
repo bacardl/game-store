@@ -3,17 +3,20 @@ using System.Web.Mvc;
 using GameStore.Domain.Entities;
 using GameStore.Domain.Abstract;
 using GameStore.WebUI.Models;
+using System.Collections.Generic;
 
 namespace GameStore.WebUI.Controllers
 {
     public class CartController : Controller
     {
         private IGameRepository repository;
+        private IOrderRepository orderRepository;
         private IOrderProcessor orderProcessor;
-        public CartController(IGameRepository repository, IOrderProcessor orderProcessor)
+        public CartController(IGameRepository repository, IOrderProcessor orderProcessor, IOrderRepository orderRepository)
         {
             this.repository = repository;
             this.orderProcessor = orderProcessor;
+            this.orderRepository = orderRepository;
         }
 
         public ViewResult Index(Cart cart, string returnUrl)
@@ -69,6 +72,11 @@ namespace GameStore.WebUI.Controllers
 
             if (ModelState.IsValid)
             {
+                Order order = new Order() 
+                {
+                    OrderItems = cart.Lines.Select(line => new OrderItem {Game = line.Game, Quantity = line.Quantity }).ToList()
+                };
+                orderRepository.CreateOrder(order);
                 orderProcessor.ProcessOrder(cart, shippingDetails);
                 cart.Clear();
                 return View("Completed");

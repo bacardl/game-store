@@ -10,7 +10,6 @@ namespace GameStore.Domain.Abstract
     public interface IOrderRepository
     {
         IEnumerable<Order> Orders { get; }
-
         Order FindOrder(int orderId);
         void CreateOrder(Order order);
         void SaveOrder(Order order);

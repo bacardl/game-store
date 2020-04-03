@@ -14,9 +14,9 @@
 <table id="cartTable" class="table">
     <thead>
         <tr>
-            <th class="text-right">Game's name</th>
-            <th class="text-center">Quantity</th>
-            <th class="text-center">Price per game</th>
+            <th>Game's name</th>
+            <th>Quantity</th>
+            <th class="text-right">Price per game</th>
             <th class="text-right">Summary</th>
         </tr>
     </thead>
@@ -24,10 +24,10 @@
         @foreach (var orderItem in Model.OrderItems)
         {
             <tr>
-                <td class="text-right">@orderItem.Game.Name</td>
+                <td class="text-left">@orderItem.Game.Name</td>
                 <td class="text-center">@orderItem.Quantity</td>
 
-                <td class="text-center">@orderItem.Game.Price.ToString("# $")</td>
+                <td class="text-right">@orderItem.Game.Price.ToString("# $")</td>
                 <td class="text-right">
                     @((orderItem.Quantity * orderItem.Game.Price).ToString("# $"))
                 </td>
@@ -36,8 +36,8 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3" class="text-right text-weight-bold">Total:</td>
-            <td class="text-left text-weight-bold">
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
                 @Model.OrderItems.Select(x => x.Quantity * x.Game.Price).ToList().Sum().ToString("# $")
             </td>
         </tr>
@@ -45,5 +45,5 @@
 </table>
 
 <p>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default btn-warning" })
+    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-default btn-warning" })
 </p>
