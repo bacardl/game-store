@@ -11,6 +11,7 @@ namespace GameStore.Domain.Entities
     public class Game
     {
         [HiddenInput(DisplayValue = false)]
+        [Key]
         public int GameId { get; set; }
 
         [Display(Name = "Name of a game")]

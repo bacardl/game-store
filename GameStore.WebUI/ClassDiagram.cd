@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameStore.WebUI.App_Start.NinjectWebCommon">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.WebUI.RouteConfig">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.WebUI.Controllers.AccountController">
+    <Position X="2.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.WebUI.Controllers.AdminController">
+    <Position X="4.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.WebUI.Controllers.CartController">
+    <Position X="6" Y="2.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.WebUI.Controllers.GameController">
+    <Position X="7.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.WebUI.Controllers.NavController">
+    <Position X="0.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.WebUI.Models.CartIndexViewModel">
+    <Position X="2.25" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.WebUI.Models.GamesListViewModel">
+    <Position X="4.25" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.WebUI.Models.LoginViewModel">
+    <Position X="6" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.WebUI.Models.PagingInfo">
+    <Position X="7.75" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.Domain.Concrete.EFDbContext">
+    <Position X="10.75" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.Domain.Concrete.EFGameRepository">
+    <Position X="10.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameStore.Domain.Concrete.EmailSettings">
+    <Position X="14.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.Domain.Concrete.EmailOrderProcessor">
+    <Position X="12.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameStore.Domain.Entities.Cart">
+    <Position X="0.75" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.Domain.Entities.CartLine">
+    <Position X="2.5" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.Domain.Entities.Game">
+    <Position X="4.5" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameStore.Domain.Entities.ShippingDetails">
+    <Position X="6.5" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="GameStore.Domain.Abstract.IGameRepository">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="GameStore.Domain.Abstract.IOrderProcessor">
+    <Position X="12.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

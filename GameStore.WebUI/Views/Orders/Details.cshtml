@@ -1,0 +1,49 @@
+﻿@model GameStore.Domain.Entities.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    #cartTable td {
+        vertical-align: middle;
+    }
+</style>
+
+<h2>Order #@Model.OrderId</h2>
+<table id="cartTable" class="table">
+    <thead>
+        <tr>
+            <th>Game's name</th>
+            <th>Quantity</th>
+            <th class="text-right">Price per game</th>
+            <th class="text-right">Summary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var orderItem in Model.OrderItems)
+        {
+            <tr>
+                <td class="text-left">@orderItem.Game.Name</td>
+                <td class="text-center">@orderItem.Quantity</td>
+
+                <td class="text-right">@orderItem.Game.Price.ToString("# $")</td>
+                <td class="text-right">
+                    @((orderItem.Quantity * orderItem.Game.Price).ToString("# $"))
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                @Model.OrderItems.Select(x => x.Quantity * x.Game.Price).ToList().Sum().ToString("# $")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<p>
+    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-default btn-warning" })
+</p>
