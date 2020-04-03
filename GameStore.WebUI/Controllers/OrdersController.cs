@@ -25,6 +25,8 @@ namespace GameStore.WebUI.Controllers
             return View(orderRepository.Orders);
         }
 
+        // TODO: implement an order status feature
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,25 +38,6 @@ namespace GameStore.WebUI.Controllers
             {
                 return HttpNotFound();
             }
-            return View(order);
-        }
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderId,Date,Status")] Order order)
-        {
-            if (ModelState.IsValid)
-            {
-                orderRepository.CreateOrder(order);
-                return RedirectToAction("Index");
-            }
-
             return View(order);
         }
 

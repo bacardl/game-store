@@ -4,6 +4,7 @@ using GameStore.Domain.Entities;
 using GameStore.Domain.Abstract;
 using GameStore.WebUI.Models;
 using System.Collections.Generic;
+using System;
 
 namespace GameStore.WebUI.Controllers
 {
@@ -72,9 +73,10 @@ namespace GameStore.WebUI.Controllers
 
             if (ModelState.IsValid)
             {
+           
                 Order order = new Order() 
                 {
-                    OrderItems = cart.Lines.Select(line => new OrderItem {Game = line.Game, Quantity = line.Quantity }).ToList()
+                    OrderItems = cart.Lines.Select(line => new OrderItem {GameId = line.Game.GameId, Quantity = line.Quantity }).ToList()
                 };
                 orderRepository.CreateOrder(order);
                 orderProcessor.ProcessOrder(cart, shippingDetails);

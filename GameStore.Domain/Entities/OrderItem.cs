@@ -15,8 +15,10 @@ namespace GameStore.Domain.Entities
         [Key, Column(Order = 1)]
         public int GameId { get; set; }
         public int Quantity { get; set; }
-
+                
         public virtual Game Game { get; set; }
+
+        [ForeignKey("OrderId")]
         public virtual Order Order { get; set; }
     }
 }
